@@ -1,0 +1,268 @@
+<!---展示所有的博客-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/self/css/public.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/bt/js/holder.js"></script>    
+    <script type="text/javascript" charset="utf-8" src="/static/edit/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/edit/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="/static/edit/lang/zh-cn/zh-cn.js"></script>
+    <script src="/static/self/js/public.js"></script>
+    <script src="/static/self/js/CheckLogin.js"></script>
+    <title>写博客 - 庄宿正的官方网站</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <!---导航开始-->
+        {include file='../application/index/view/model/model.html'}
+        <!---导航结束-->
+
+        <!---左侧边栏开始-->
+        {include file='../application/index/view/model/left.html'}
+        <!---左侧边栏结束-->
+
+        <!---右侧边栏开始-->
+        <div class="col-xs-12 col-sm-12 col-md-9" style="height: 100%">
+        
+          <div>
+            <div class="form-group">
+              <input type="hidden" name="Id" value="{$text.Id}">
+              <label for="">标题</label>
+              <input type="text" name="Title" id="" class="form-control" placeholder="说点什么?我们会将他放在最显眼的地方" value="{$text.Title}">
+            </div>
+            <script id="editor" type="text/plain" style="width:1024px;height:500px;">{$text.Content}</script>
+
+            <div class="form-group" id="OR">
+              <label for="">来源</label>
+              <select class="form-control OR">
+                <option value="1">原创</option>
+                <option value="0">转载</option>
+              </select>
+            </div>
+            <div class="form-group" id="Type">
+              <label for="">分类:</label>
+              <select class="form-control type">
+                {volist name='selectlist' id='lt'}
+                <option value ="{$lt.Type}">{$lt.Type}</option>
+                {/volist}
+                <option value ="其他">其他</option>
+              </select>
+            </div>
+            
+
+            <input type="button" value="发布博客" class="btn btn-success form-control" onclick="getContent();">
+            <!--<input type="reset" value="将编辑器置为初始化状态" class="btn btn-danger form-control">-->
+          </div>
+            
+        </div>
+
+        <!---右侧边栏结束-->
+
+
+
+    </div>
+    <!--页脚开始-->
+      {include file='../application/index/view/model/font.html'}
+    <!--页脚结束-->
+</body>
+
+<script>
+$(function(){
+  $(".OR").val('{$text.OR}');
+  $(".type").val('{$text.Type}');  
+//$('body').hide(500);
+//$('body').toggle(1000);
+//判断用户Cookie是否存在
+var Token = $.cookie("UserToken");
+$.ajax({
+    url:"/CheckToken",
+    type:'POST',
+    data:{Token:Token},
+    success:function(data){
+        if(data.mag == '1'){
+          //登录成功
+          $('.UserLogin').html(data.UserName + "  <span class='caret'></span>");
+          $('.UserLogin').attr('data-toggle','dropdown');
+        }
+
+        if(data.mag == '0'){
+          $('.UserLogin').html("用户登录");
+        }
+
+        if(data.mag == '-1'){
+          $.cookie('Token', null,{ expires: 7, path: '/' });
+          alert(data.other);
+        }
+    }
+});
+
+
+//登录成功
+//$('.UserLogin').attr('data-toggle','dropdown');
+//UserLogin
+});
+</script>
+
+
+
+<script type="text/javascript">
+  var UserId = '0';
+  //实例化编辑器
+  //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+  var ue = UE.getEditor('editor');
+  function getContent() {
+      var arr = [];
+      //获取有格式的文本
+      arr.push(UE.getEditor('editor').getContent());
+      //获取无格式的文本
+      
+      Formless = UE.getEditor('editor').getContentTxt();
+      //alert(arr.join("\n"));
+      
+      //alert(arr.join("\n"));
+      var Id = $("input[name='Id']").val();
+      var Title = $("input[name='Title']").val();
+      var Token = $.cookie('Token');
+      var OR = $("#OR").find("option:selected").val();
+      var Type = $("#Type").find("option:selected").text();
+
+      // 获取用户ID
+      $.ajax({
+        url:'{:url("User/IfTokenReturnUserId")}',
+        type:'post',
+        data:{Token,Token},
+        success:function(data){
+          UserId = data;
+        }
+      });
+
+      // 提交博客信息  这里有两种方式第一种是修改博客信息 第二种是添加博客信息 两者判别依据是 修改信息有ID  添加无ID
+      $.ajax({
+        url:'{:url("Index/Release")}',
+        type:'POST',
+        data:{Content:arr.join(),Id:Id,UserId:UserId,Title:Title,Type:Type,Formless:Formless,OR:OR},
+        success:function(data){
+          if(data[0].Id == 1){
+            alert(data[0].Mag);
+            $(location).attr('href','/MagBlog');
+          }
+          if(data[0].Id == 0){
+            alert(data[0].Mag);
+          }
+        }
+      });
+  }
+
+  function isFocus(e){
+      alert(UE.getEditor('editor').isFocus());
+      UE.dom.domUtils.preventDefault(e)
+  }
+  function setblur(e){
+      UE.getEditor('editor').blur();
+      UE.dom.domUtils.preventDefault(e)
+  }
+  function insertHtml(text) {
+      var value = prompt(text, '');
+      UE.getEditor('editor').execCommand('insertHtml', value)
+  }
+  function createEditor() {
+      enableBtn();
+      UE.getEditor('editor');
+  }
+  function getAllHtml() {
+      alert(UE.getEditor('editor').getAllHtml())
+  }
+
+  function getPlainTxt() {
+      var arr = [];
+      arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+      arr.push("内容为：");
+      arr.push(UE.getEditor('editor').getPlainTxt());
+      alert(arr.join('\n'))
+  }
+  function setContent(isAppendTo) {
+      var arr = [];
+      arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+      UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
+      alert(arr.join("\n"));
+  }
+  function setDisabled() {
+      UE.getEditor('editor').setDisabled('fullscreen');
+      disableBtn("enable");
+  }
+
+  function setEnabled() {
+      UE.getEditor('editor').setEnabled();
+      enableBtn();
+  }
+
+  function getText() {
+      //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+      var range = UE.getEditor('editor').selection.getRange();
+      range.select();
+      var txt = UE.getEditor('editor').selection.getText();
+      alert(txt)
+  }
+
+  function getContentTxt() {
+      var arr = [];
+      arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+      arr.push("编辑器的纯文本内容为：");
+      arr.push(UE.getEditor('editor').getContentTxt());
+      alert(arr.join("\n"));
+  }
+  function hasContent() {
+      var arr = [];
+      arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+      arr.push("判断结果为：");
+      arr.push(UE.getEditor('editor').hasContents());
+      alert(arr.join("\n"));
+  }
+  function setFocus() {
+      UE.getEditor('editor').focus();
+  }
+  function deleteEditor() {
+      disableBtn();
+      UE.getEditor('editor').destroy();
+  }
+  function disableBtn(str) {
+      var div = document.getElementById('btns');
+      var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+      for (var i = 0, btn; btn = btns[i++];) {
+          if (btn.id == str) {
+              UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+          } else {
+              btn.setAttribute("disabled", "true");
+          }
+      }
+  }
+  function enableBtn() {
+      var div = document.getElementById('btns');
+      var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+      for (var i = 0, btn; btn = btns[i++];) {
+          UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+      }
+  }
+
+  function getLocalData () {
+      alert(UE.getEditor('editor').execCommand( "getlocaldata" ));
+  }
+
+  function clearLocalData () {
+      UE.getEditor('editor').execCommand( "clearlocaldata" );
+      alert("已清空草稿箱")
+  }
+</script>
+<script>
+
+</script>
+</html>

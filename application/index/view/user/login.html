@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/self/css/public.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/bt/js/holder.js"></script>
+    <script src="/static/self/js/public.js"></script>
+    <script src="/static/self/js/Login.js"></script>
+    <title>用户登录 - 庄宿正的官方网站</title>
+</head>
+<body style="background-size:100%;">
+    <div class="container">
+        <div class="col-md-7"></div>
+        <div class="col-md-4">
+        <form class="form-group" style="margin-top:100px;padding:5px 30px;border:1px solid;border-radius:25px;-moz-border-radius:25px;background-color:rgba(238, 238, 238, 0.5)" >
+            <!--<h3 class="page-header">Yy科技城用户登录</h3>-->
+            <h3 class="page-header">用户登录</h3>
+            <div class="form-group">
+                <label for="">电子邮件:</label>
+                <input type="email" name="Email" placeholder="输入您注册时填写的电子邮件" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">密码:</label>
+                <input type="password" name="PassWord" class="form-control" placeholder="您所要登录账号的密码">
+            </div>
+            <div class="form-group">
+                <label for="">验证码:
+                        <img id="verify_img" src="{:captcha_src()}" alt="点击更新验证码" onclick="refreshVerify()"/>
+                </label>
+                <input type="text" name="Vcode" id="" class="form-control" placeholder="请输入上方验证码">
+            </div>
+
+            <div class="form-group">
+                <input type="button" value="登录" class="btn btn-success form-control">
+            </div>
+            <a href="Reg">我没有账号,请先注册</a>
+            <a href="ForGetPassWord" style="float:right">忘记密码?</a>
+        </form>
+        
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</body>
+</html>
+<script>
+(function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+<script>
+    function refreshVerify() {
+        var ts = Date.parse(new Date())/1000;
+        $('#verify_img').attr("src", "/captcha?id="+ts);
+    }
+</script>

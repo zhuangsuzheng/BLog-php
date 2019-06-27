@@ -1,0 +1,95 @@
+<!---展示所有的博客-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}  
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/self/css/public.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/bt/js/holder.js"></script>    
+    <script src="/static/self/js/public.js"></script>
+    <script src="/static/self/js/CheckLogin.js"></script>
+    <script src="/static/404/js/particles.min.js"></script>
+    <title>{$TypeKey} - 庄宿正的官方网站</title>
+</head>
+<body style="overflow:scroll;">     
+    <div class="container-fluid">
+
+        <!---导航开始-->
+        {include file='../application/index/view/model/model.html'}
+        <!---导航结束-->
+
+        <!---左侧边栏开始-->
+        {include file='../application/index/view/model/left.html'}
+        <!---左侧边栏结束-->
+        <!---右侧边栏开始-->
+        <div class="col-xs-12 col-sm-12 col-md-10" style="height: 100%">          
+            <div class="panel panel-info" style="margin:3px 0px 6px 0px;">
+            <div class="panel-heading">庄宿正的官方网站欢迎您！</div>
+            <div class="panel-body">
+                <h1 style="font-size:16px;"><center>庄宿正的官方网站-中国专业IT社区Yy-Blog 创立于2019年，致力于为中国软件开发者提供知识传播、在线学习、职业发展、学习笔记等全生命周期服务。</center></h1>
+                <p>将您所学技术发布到本平台让更多的人受益这既是您的奉献，也是我们的荣幸。<br />您可以<a href="/Reg">注册成为本站会员(完全免费)</a> 即可在全网进行知识传播。您也可以将本站作为您的学习笔记本 我们不会删除您的任何合法记录！</p>
+                <p><center>我们会定期对创作之星进行奖励！</center></p>
+            </div>
+            </div>              
+            <!--开始循环-->
+            {volist name="list" id="vo"}
+            <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
+                  <span class="label label-danger">{$vo.Type}</span>
+                  <a href="/Blog/{$vo.Id}" target="_blank" class="glyphicon glyphicon-envelope"><b>{$vo.Title}</b> </a>
+                  <span class="label label-warning">浏览量:{$vo.Views}</span>  
+                </h3>
+            </div>
+            <div class="panel-body"  style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+                {$vo.Formless}
+            </div>
+              <span class="label label-define"  style="float:right; color:red">{$vo.PostTime|date='Y-m-d',###}</span>
+                <span class="label label-info" style="float:right;">
+                    <a href="/Blog/{$vo.Id}" target="_blank">查看全文</a>
+                    
+                </span>
+            </div>            
+            {/volist}
+            <!--结束循环-->
+            <center>{$page}</center>
+            <!--页脚开始-->
+            {include file='../application/index/view/model/font.html'}
+    <!--页脚结束-->
+        </div>
+        <!---右侧边栏结束-->
+    </div>
+    
+</body>
+<script>
+
+//判断用户Cookie是否存在
+var Token = $.cookie("UserToken");
+$.ajax({
+    url:"/CheckToken",
+    type:'POST',
+    data:{Token:Token},
+    success:function(data){
+        if(data.mag == '1'){
+          //登录成功
+          $('.UserLogin').html(data.UserName + "  <span class='caret'></span>");
+          $('.UserLogin').attr('data-toggle','dropdown');
+        }
+
+        if(data.mag == '0'){
+          $('.UserLogin').html("用户登录");
+        }
+
+        if(data.mag == '-1'){
+          $.cookie('Token', null,{ expires: 7, path: '/' });
+          alert(data.other);
+        }
+    }
+});
+</script>
+</html>

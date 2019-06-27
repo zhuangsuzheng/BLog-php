@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/self/css/public.css">
+    <link rel="stylesheet" href="/static/uiAlertView/css/uiAlertView-1.0.0.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/bt/js/holder.js"></script>
+    <script src="/static/self/js/public.js"></script>
+    <script src="/static/uiAlertView/js/jquery.uiAlertView-1.0.0.js"></script>
+    <script src="/static/self/js/Reg.js"></script>
+    <title>注册账号 - 庄宿正的官方网站</title>
+</head>
+<body style="background-size:100%;">
+    <div class="container">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="margin-top:10px">
+        <form  style="margin-top:50px;padding:5px 30px;border:1px solid;border-radius:25px;-moz-border-radius:25px;background-color:rgba(238, 238, 238, 0.5)" >
+            <h3 class="page-header">用户注册</h3>
+            <div class="form-group">
+                <label for="">电子邮件(<span style="font-size:12px;">账号</span>):</label>
+                <input type="email" name="Email" class="form-control" placeholder="邮箱"  required="required">
+            </div>
+            <div class="form-group">
+                <label for="">密码:</label>
+                <input type="password" name="PassWord" class="form-control" placeholder="密码(大于6位小于18位)"  required="required">
+            </div>
+            <div class="form-group">
+                <label for="">确认密码:</label>
+                <input type="password" name="PassWord_confirm" class="form-control" placeholder="(大于6位小于18位)"  required="required">
+            </div>
+            <div class="form-group">
+                <label for="">姓名:</label>
+                <input type="text" name="UserName" class="form-control" placeholder="真实姓名"  required="required">
+            </div>
+            <div class="form-group">
+                <label for="">手机号码:</label>
+                <input type="text" name="PhoneNumber" class="form-control" placeholder="手机号(忘记密码时可用此手机找回)"  required="required">
+            </div>
+            <div class="form-group">
+                <label for="">验证码:<img id="verify_img" src="{:captcha_src()}" alt="验证码" onclick="this.src='{:captcha_src()}'" width="200px" height="40px;"></label>
+                <input type="text" name="Vcode" id="" class="form-control" placeholder="请输入上方验证码" required="required">
+            </div>
+            <span id="ErrorInfo" class="form-control" style="color:red;font-size: 12px;text-align: center;" >*服务器无返回信息</span>
+            <div class="form-group">
+                <input type="button" value="注册账号" class="btn default form-control">
+            </div>
+            <a href="Login">我已有账号,请直接登录</a>
+        </form>
+        
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</body>
+</html>
+
+<script>
+(function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>

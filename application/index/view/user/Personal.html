@@ -1,0 +1,159 @@
+<!---个人中心-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/self/css/public.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/bt/js/holder.js"></script>    
+    <script src="/static/404/js/particles.min.js"></script>
+    <title>个人中心 - 庄宿正的官方网站</title>
+</head>
+<body>
+    <div class="container-fluid" style="height:100%">
+
+        <!---导航开始-->
+
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">YyCity</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{:url('Index/index')}">Yy-BLog</a>
+              </div>
+          
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li><a href="{:url('Index/index')}">首页 <span class="sr-only">(current)</span></a></li>
+                  <li><a href="{:url('Index/Downloading')}">资源下载</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">相关领域 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <!----分类开始-->
+                      <li><a href="{:url('Index')}">全部领域</a></li>
+                      <li role="separator" class="divider"></li>
+                      {volist name='TypeList' id='ls'}
+                      <li><a href="{:url('Index/ShowType',['Type'=>$ls.Type])}">{$ls.Type}</a></li>
+                      {/volist}
+                      <li role="separator" class="divider"></li>
+                      <li><a href="#">One more separated link</a></li>
+                      <!----分类结束-->
+                    </ul>
+                  </li>
+                </ul>
+                <form class="navbar-form navbar-left" action="{:url('SelectKeyWord')}" method="get">
+                  <div class="form-group">
+                    <input type="text" name="KeyWord" class="form-control" placeholder="输入您要搜索的内容">
+                  </div>
+                  <button type="submit" class="btn btn-default">搜索</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">                                             <!--只要不是dropdown 就不会弹出下拉菜单-->
+                    <a href="{:url('User/Login')}" class="dropdown-toggle UserLogin" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">用户登录</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{:url('WriteComments')}" class="glyphicon glyphicon-pencil">写博客</a></li>
+                      <li><a href="#" class="glyphicon glyphicon-th-list">管理博客</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="{:url('User/Personal')}" class="glyphicon glyphicon-user">个人中心</a></li>
+                      <li><a href="{:url('User/OutLogin')}" class="glyphicon glyphicon-off">退出登录</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="{:url('admin/index/index')}">后台管理</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          
+
+        <!---导航结束-->
+
+        <!---左侧边栏开始-->
+        <div class="col-xs-0 col-sm-0 col-md-3 hidden-xs hidden-sm" style="height: 100%">
+
+          <div class="list-group">
+            <a href="#" class="list-group-item active">
+              个人中心
+            </a>
+            <a href="{:url('User/selfinfo')}"  target="leftmain" class="list-group-item">基本信息</a>
+            <a href="{:url('User/vip')}" target="leftmain" class="list-group-item">会员信息</a>
+            <a href="{:url('User/integral')}" target="leftmain" class="list-group-item">我的积分</a>
+            <a href="{:url('User/selfinfo')}" target="leftmain" class="list-group-item">绑定手机号</a>
+            <a href="{:url('User/selfinfo')}" target="leftmain" class="list-group-item">博客管理</a>
+            <a href="{:url('User/selfinfo')}" target="leftmain" class="list-group-item">我的日志</a>
+            <a href="{:url('User/selfinfo')}" target="leftmain" class="list-group-item">我的积分</a>
+            <a href="{:url('User/selfinfo')}" target="leftmain" class="list-group-item">账号安全</a>
+            <a href="{:url('User/selfinfo')}" target="leftmain" class="list-group-item">实名认证</a>
+          </div>
+            
+
+        </div>
+        <!---左侧边栏结束-->
+
+        <!---右侧边栏开始-->
+        <div id="leftbox" class="col-xs-12 col-sm-12 col-md-9" style="height: 100%">
+        
+          <iframe id="leftcontent" frameborder='0' name="leftmain" src="{:url('User/selfinfo')}" width="100%"></iframe>          
+            
+        </div>
+
+        <!---右侧边栏结束-->
+
+
+
+    </div>
+    <!--页脚开始-->
+    {include file='../application/index/view/model/font.html'}
+    <!--页脚结束-->
+</body>
+
+<script>
+$(function(){
+  
+  // 获取右侧边高度
+  //$height = $(window).height();
+  $height = $('.container-fluid').height();
+  $content = $('#leftcontent').height($height);  
+  
+
+//判断用户Cookie是否存在
+var Token = $.cookie("UserToken");
+$.ajax({
+    url:"{:url('User/CheckToken')}",
+    type:'POST',
+    data:{Token:Token},
+    success:function(data){
+        if(data.mag == '1'){
+          //登录成功
+          $('.UserLogin').html(data.UserName + "  <span class='caret'></span>");
+          $('.UserLogin').attr('data-toggle','dropdown');
+        }
+
+        if(data.mag == '0'){
+          $('.UserLogin').html("用户登录");
+        }
+
+        if(data.mag == '-1'){
+          $.cookie('Token', null,{ expires: 7, path: '/' });
+          alert(data.other);
+        }
+    }
+});
+
+
+//登录成功
+//$('.UserLogin').attr('data-toggle','dropdown');
+//UserLogin
+});
+</script>
+</html>

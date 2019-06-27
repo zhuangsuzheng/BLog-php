@@ -1,0 +1,73 @@
+<!---资源下载-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/self/css/public.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/self/js/CheckLogin.js"></script>
+    <script src="/static/bt/js/holder.js"></script> 
+    <title>资源下载 - 庄宿正的官方网站</title>
+</head>
+<body>
+    <div class="container-fluid">
+      <!---导航开始-->
+      {include file='../application/index/view/model/model.html'}
+      <!---导航结束-->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <div class="label label-default">{$rels.Id}-{$rels.Type}</div>
+                    {$rels.Title}
+                </h3>
+            </div>
+            <div class="panel-body">
+                {$rels.Content}
+                <hr>
+                <a href="{$rels.Link}" target="_blank" class="btn btn-success">单击下载</a>
+            </div>
+        </div>      
+    </div>
+</body>
+<script>
+$(function(){
+
+    
+//$('body').hide(500);
+//$('body').toggle(1000);
+//判断用户Cookie是否存在
+var Token = $.cookie("UserToken");
+$.ajax({
+    url:"/CheckToken",
+    type:'POST',
+    data:{Token:Token},
+    success:function(data){
+        if(data.mag == '1'){
+          //登录成功
+          $('.UserLogin').html(data.UserName + "  <span class='caret'></span>");
+          $('.UserLogin').attr('data-toggle','dropdown');
+        }
+
+        if(data.mag == '0'){
+          $('.UserLogin').html("用户登录");
+        }
+
+        if(data.mag == '-1'){
+          $.cookie('Token', null,{ expires: 7, path: '/' });
+          alert(data.other);
+        }
+    }
+});
+
+
+//登录成功
+//$('.UserLogin').attr('data-toggle','dropdown');
+//UserLogin
+});
+</script>
+</html>

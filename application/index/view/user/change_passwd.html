@@ -1,0 +1,104 @@
+<!---展示所有的博客-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/self/css/public.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/bt/js/holder.js"></script>    
+    <script src="/static/self/js/public.js"></script>
+    <script src="/static/404/js/particles.min.js"></script>
+    <title>修改密码 - 庄宿正的官方网站</title>
+</head>
+<body>
+    <div class="container-fluid" style="height: 100%;">
+
+        <!---导航开始-->
+        {include file='../application/index/view/model/model.html'}
+        <!---导航结束-->
+        <!---右侧边栏开始-->
+        <div class="col-xs-4 col-sm-4 col-md-4" style="height:100%"></div>
+        <div class="col-xs-4 col-sm-4 col-md-4" style="height:100%;"> 
+                
+                <form action="{:url('User/ChangePassWd')}" method="POST" class="form-group" style="margin-top:100px;margin-bottom:50px;padding:5px 30px;border:1px solid;border-radius:25px;-moz-border-radius:25px;background-color:rgba(238, 238, 238, 0.5)"  >
+                <h1 class="page-header">修改密码</h1>
+                <div class="form-group">
+                    <label for="">旧密码</label>
+                    <input type="password" name="OldPassWord" id="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">新密码</label>
+                    <input type="password" name="NewPassWord" id="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">重复密码</label>
+                    <input type="password" name="ReNewPassWord" id="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="submit" name="" id="" class="form-control">
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4" style="height: 100%"></div>
+        </div>
+
+        <!---右侧边栏结束-->
+
+
+
+    </div>
+
+</body>
+
+<script>
+    $(function(){
+    //判断用户Cookie是否存在
+    var Token = $.cookie("UserToken");
+    $.ajax({
+        url:"CheckToken",
+        type:'POST',
+        data:{Token:Token},
+        success:function(data){
+            if(data.mag == '1'){
+              //登录成功
+              $('.UserLogin').html(data.UserName + "  <span class='caret'></span>");
+              $('.UserLogin').attr('data-toggle','dropdown');
+            }
+    
+            if(data.mag == '0'){
+              $('.UserLogin').html("用户登录");
+            }
+    
+            if(data.mag == '-1'){
+              $.cookie('Token', null,{ expires: 7, path: '/' });
+              alert(data.other);
+            }
+        }
+    });
+    
+    
+    //登录成功
+    //$('.UserLogin').attr('data-toggle','dropdown');
+    //UserLogin
+    });
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+
+</html>

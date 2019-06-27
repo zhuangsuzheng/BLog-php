@@ -1,0 +1,83 @@
+<!---资源下载-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/self/css/public.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/self/js/CheckLogin.js"></script>
+    <script src="/static/bt/js/holder.js"></script> 
+    <style>
+      #list{
+        
+        margin-top:3px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    </style>
+    <title>资源下载 - 庄宿正的官方网站</title>
+</head>
+<body>
+    <div class="container-fluid">
+      <!---导航开始-->
+      {include file='../application/index/view/model/model.html'}
+      <!---导航结束-->
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h4 class="page-header" style="margin:0px;">资源列表</h4>
+        <ul class="list-group">
+          {volist name="list" id="ls"}
+            <li class="list-group-item" id="list">
+              <b>{$ls.Title}|</b>{$ls.Content}<br />
+              <span style="float:right">
+                <span class="label label-success">{$ls.Time|date='Y-m-d',###}</span>
+                <a href="/Resource/{$ls.Id}" class="label label-primary">--- 查看详情 ---</a>
+              </span>
+            </li>
+          {/volist}
+        </ul>
+      </div>
+      <div class="col-md-2"></div>
+</body>
+<script>
+$(function(){
+
+    
+//$('body').hide(500);
+//$('body').toggle(1000);
+//判断用户Cookie是否存在
+var Token = $.cookie("UserToken");
+$.ajax({
+    url:"/CheckToken",
+    type:'POST',
+    data:{Token:Token},
+    success:function(data){
+        if(data.mag == '1'){
+          //登录成功
+          $('.UserLogin').html(data.UserName + "  <span class='caret'></span>");
+          $('.UserLogin').attr('data-toggle','dropdown');
+        }
+
+        if(data.mag == '0'){
+          $('.UserLogin').html("用户登录");
+        }
+
+        if(data.mag == '-1'){
+          $.cookie('Token', null,{ expires: 7, path: '/' });
+          alert(data.other);
+        }
+    }
+});
+
+
+//登录成功
+//$('.UserLogin').attr('data-toggle','dropdown');
+//UserLogin
+});
+</script>
+</html>

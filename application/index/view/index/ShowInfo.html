@@ -1,0 +1,137 @@
+﻿<!---展示所有的博客-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/self/css/public.css">
+    <link rel="stylesheet" href="/static/share/css/share.min.css">
+    <style>
+
+    </style>
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/bt/js/holder.js"></script>    
+    <script src="/static/self/js/CheckLogin.js"></script>
+    <script src="/static/self/js/public.js"></script>
+    <script src="/static/share/js/jquery.share.min.js"></script>
+    <title>{$list.Title} {$UserInfo.UserName}的{$list.OR?'原创':'转载'}博客 -  - 庄宿正的官方网站</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <!---导航开始-->
+        {include file='../application/index/view/model/model.html'}
+        <!---导航结束-->
+        <!---左侧边栏开始-->
+        {include file='../application/index/view/model/left.html'}
+        <!---左侧边栏结束-->
+
+        <!---右侧边栏开始-->
+        <div class="col-xs-12 col-sm-12 col-md-10" style="height: 100%">
+            <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
+                    <span class="label label-danger">{$list.Type}</span>
+                    <b>{$list.Title}</b>
+                    <span class="label label-success">投稿者:{$UserInfo.UserName}</span> 
+                    <span class="label label-info">{$list.OR?'原创':'转载'}</span>
+                    <span class="label label-warning">浏览量:{$list.Views}</span>  
+                    <span class="label label-info">{$list.PostTime|date='Y-m-d',###}</span>
+                </h3>
+            </div>
+            
+            <div class="panel-body"> 
+                <h6 style="text-align: center">声明:<small>作者:<b>{$UserInfo.UserName}</b> 在 <b>{$list.PostTime|date='Y-m-d',###}</b><b>{$list.OR?'原创作品!<span style="color:red;"> 版权归作者所有,盗版必究!</span>':'转载作品!<span style="color:red;"> 原作者若因版权问题,请联系作者。也可以提供必要的证据向Yy-BLog 我们会给予帮助！</span>'}</b>   </small></h6>
+                <h3 style="text-align: center">{$list.Title}</h3>
+                <hr />
+                {$list.Content}
+                <hr />
+                <span class="label label-warning" style="float:right;">浏览量:{$list.Views}</span>
+                <li class="row">
+                    <div class="social-share" data-mode="prepend">
+                        <a href="javascript:" class="social-share-icon icon-heart"></a>
+                    </div>
+                </li>
+            </div>
+            </div>
+            <textarea class="form-control" rows="3" name="Content" placeholder="说点什么?">
+
+            </textarea>
+            <input type="button" name="PostContent" class="btn btn-success" style="float: right;" value="提交评论">
+            <div class="list-group" style="margin-top:50px;">
+                
+                <ul  style="background-color:aliceblue;padding:10px;list-style:none">
+                <span><b> 最新评论：</b></span>
+                {volist name="CatList" id="cl"}
+                    <li><span style="color:dimgrey;"> 用户 </span>{$cl.UserName}<span style="color:dimgrey;"> 在 </span> {$cl.Time|date='Y-m-d h:m:s',###} 说:<span style="color:red;">{$cl.CatContent}</span></li>
+                {/volist}
+                </ul>
+            </div>
+            <!--页脚开始-->
+                {include file='../application/index/view/model/font.html'}
+            <!--页脚结束-->
+        </div>
+        <!---右侧边栏结束-->
+                  
+
+
+
+    </div>
+</body>
+
+
+<script>
+  $(function(){
+      
+    $("input[name='PostContent']").click(function(){
+        var Bid = '{$list.Id}';
+        var Uid = '{$list.UserId}';
+        var Content = $("textarea[name='Content']").val();
+        console.log(Content);
+        $.ajax({
+            url:'/CatRelease',
+            type:'post',
+            data:{Bid:Bid,Uid:Uid,Content:Content},
+            success:function(data){
+                alert(data.mag);
+            }
+        });
+    });
+
+
+
+  //判断用户Cookie是否存在
+  var Token = $.cookie("UserToken");
+  $.ajax({
+      url:"/CheckToken",
+      type:'POST',
+      data:{Token:Token},
+      success:function(data){
+          if(data.mag == '1'){
+            //登录成功
+            $('.UserLogin').html(data.UserName + "  <span class='caret'></span>");
+            $('.UserLogin').attr('data-toggle','dropdown');
+          }
+  
+          if(data.mag == '0'){
+            $('.UserLogin').html("用户登录");
+          }
+  
+          if(data.mag == '-1'){
+            $.cookie('Token', null,{ expires: 7, path: '/' });
+            alert(data.other);
+          }
+      }
+  });
+  
+  
+  //登录成功
+  //$('.UserLogin').attr('data-toggle','dropdown');
+  //UserLogin
+  });
+  </script>
+</html>

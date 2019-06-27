@@ -1,0 +1,107 @@
+<!---展示所有的博客-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}  
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/self/css/public.css">
+    <link rel="stylesheet" href="/static/uiAlertView/css/uiAlertView-1.0.0.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/bt/js/holder.js"></script>    
+    <script src="/static/self/js/public.js"></script>
+    <script src="/static/self/js/CheckLogin.js"></script>
+    <script src="/static/404/js/particles.min.js"></script>
+    <script src="/static/uiAlertView/js/jquery.uiAlertView-1.0.0.js"></script>
+    <title>{$TypeKey} - 庄宿正的官方网站</title>
+</head>
+<body style="overflow:scroll;">
+    <div class="container-fluid">
+
+        <!---导航开始-->
+        {include file='../application/index/view/model/model.html'}
+        <!---导航结束-->
+
+        <!---左侧边栏开始-->
+        {include file='../application/index/view/model/left.html'}
+        <!---左侧边栏结束-->
+
+        <!---右侧边栏开始-->
+        <div class="col-xs-12 col-sm-12 col-md-10">   
+        {volist name="list" id="vo"}
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="label label-warning"><a href="Update/{$vo.Id}" style="color:aliceblue">修改</a></span>                          
+                        <span class="label label-danger"><a idx="{$vo.Id}" href="javascript:void(0);" class="del" style="color:aliceblue">删除</a></span>
+                        <a href="Update/{$vo.Id}" target="_blank" class="glyphicon glyphicon-envelope">{$vo.Title} </a>
+                        <span class="label label-success">{$vo.OR?'原创':'转载'}</span>
+                    </h3>
+                </div>
+                <div class="panel-body"  style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+                    {$vo.Formless}
+                </div>
+            </div> 
+            
+            {/volist}
+            <center>{$page}</center>
+        <!--页脚开始-->
+        {include file='../application/index/view/model/font.html'}
+        <!--页脚结束-->
+        </div>
+        <!---右侧边栏结束-->
+    </div>
+    
+</body>
+<script>
+//判断用户Cookie是否存在
+var Token = $.cookie("UserToken");
+$.ajax({
+    url:"/CheckToken",
+    type:'POST',
+    data:{Token:Token},
+    success:function(data){
+        if(data.mag == '1'){
+          //登录成功
+          $('.UserLogin').html(data.UserName + "  <span class='caret'></span>");
+          $('.UserLogin').attr('data-toggle','dropdown');
+        }
+
+        if(data.mag == '0'){
+          $('.UserLogin').html("用户登录");
+        }
+
+        if(data.mag == '-1'){
+          $.cookie('Token', null,{ expires: 7, path: '/' });
+          alert(data.other);
+        }
+    }
+});
+
+// 定义多个按钮
+$(document).on('click','.del',function(){
+    idx = $(this).attr("idx");
+    var json = {
+		title:"是否确认删除博客操作？",
+		msg:"如果你单击了确定按钮,这篇博客将会被永久删除!当然您也可以取消本次操作,这将不会对您的博客产生任何影响！/If you click the OK button, this blog will be permanently deleted! Of course you can also cancel this operation, which will not affect your blog!",
+		buttons:[
+			{ title:"确定",click:function(){
+                $(location).attr("href","/Delete/" + idx);
+            }},
+			{ title:"取消",click:function(){
+                
+            }},
+		]
+	}
+				
+    $.alertView(json);
+})
+
+function del(){
+    
+}
+</script>
+</html>

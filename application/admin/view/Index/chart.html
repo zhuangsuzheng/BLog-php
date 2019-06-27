@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dream</title>
+	<!-- Bootstrap Styles-->
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="/static/assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- Morris Chart Styles-->
+    <link href="/static/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="/static/assets/css/custom-styles.css" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <script src="/static/self/js/public.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        {include file='../application/admin/view/model/nav.html'}
+        <!--/. NAV TOP  -->
+        {include file='../application/admin/view/model/left.html'}
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            
+
+
+            <!---主要内容开始--->
+
+            <table class="table">
+                <tr nowrap="nowrap">
+                    <th nowrap="nowrap">Id</th>
+                    <th nowrap="nowrap">标题</th>
+                    <th nowrap="nowrap">类型</th>
+                    <th nowrap="nowrap">提交时间</th>
+                    <th nowrap="nowrap">状态</th>
+                </tr>
+                <!---开始循环--->
+                {volist name="list" id='ls'}
+                <tr>
+                    <td  nowrap="nowrap">{$ls.Id}</td>
+                    <td>
+                        <a href="{:url('showInfo').'?Id='.$ls.Id}">{$ls.Title}</a>
+                    </td>
+                    <td  nowrap="nowrap">{$ls.Type}</td>
+                    <td  nowrap="nowrap">{$ls.PostTime|date='Y-m-d H:i:s',###}</td>
+                    <td  nowrap="nowrap">{$ls.State}</td>
+                    
+                </tr>
+                {/volist}
+                <!---结束循环--->
+                
+            </table>
+            {$page}            
+
+
+
+            <!---主要内容结束--->
+
+
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="/static/assets/js/jquery-1.10.2.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="/static/assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="/static/assets/js/jquery.metisMenu.js"></script>
+     <!-- Morris Chart Js -->
+     <script src="/static/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="/static/assets/js/morris/morris.js"></script>
+      <!-- Custom Js -->
+    <script src="/static/assets/js/custom-scripts.js"></script>
+    
+   
+</body>
+
+<script>
+var Id;
+        $(".del").click(function(){
+
+            Id = $(this).attr("idx");
+            var name = $(this).attr("idn");
+            $("#User").html(name);
+
+            
+
+
+        });
+        $("button[type='TiJiao']").click(function(){
+            $.ajax({
+                url:"{:url('DelUser')}",
+                type:'POST',
+                dataType:'JSON',
+                data:{Id:Id},
+                success:function(data){
+                    if(data){
+                        alert("执行成功");
+                    }else{
+                        alert("执行失败");
+                    }
+                    
+                }
+            });
+        });
+</script>
+</html>

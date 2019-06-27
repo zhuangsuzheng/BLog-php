@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/</loc>
+<priority>1.00</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ResList</loc>
+<priority>0.80</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/WriteComments</loc>
+<priority>0.80</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Login</loc>
+<priority>0.80</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/PostResource</loc>
+<priority>0.80</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/?page=2</loc>
+<priority>0.80</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/?page=3</loc>
+<priority>0.80</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/?page=1</loc>
+<priority>0.80</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/Bootstrap</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/C语言</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/Github</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/HTML</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/JQuery</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/JSP</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/MySQL</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/Node.Js</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/Python</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/ThinkPHP</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/Ubuntu</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/ShowType/其他</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/59</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/58</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/57</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/56</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/55</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/54</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/53</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/50</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/49</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/48</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/47</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/46</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/45</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/44</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/43</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/42</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/41</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/40</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/39</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/38</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/37</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/36</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/35</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/34</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/33</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/32</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/31</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/30</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/28</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/27</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/26</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/24</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/23</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/22</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/21</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/20</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/19</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/18</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/16</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/15</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/14</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/11</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/10</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/9</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/8</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/7</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/6</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/5</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/3</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/Blog/2</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/index/index?page=2</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/index/index?page=3</loc>
+<priority>0.60</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/index/user/personal</loc>
+<priority>0.40</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/index/user/changepasswd</loc>
+<priority>0.40</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/index/user/outlogin</loc>
+<priority>0.40</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+<url>
+<mobile:mobile type="htmladapt"/>
+<loc>http://www.yykjc.cn/admin/index/index</loc>
+<priority>0.40</priority>
+<lastmod>2019-05-02</lastmod>
+<changefreq>always</changefreq>
+</url>
+</urlset>

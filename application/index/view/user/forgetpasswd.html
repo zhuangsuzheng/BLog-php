@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file='../application/index/view/model/head.html'}
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/bootstrap.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/bt/js/holder.js"></script>
+    <script src="/static/self/js/public.js"></script>
+    <title>忘记密码 - 庄宿正的官方网站</title>
+</head>
+<body style="background-color:#eee">
+    <div class="container">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form class="form-group" style="margin-top:100px;padding:5px 30px;border:1px solid;border-radius:25px;-moz-border-radius:25px;background-color:rgba(238, 238, 238, 0.5)"  >
+                <h1 class="page-header">找回密码</h1>
+                <!--<h3 class="page-header">Yy科技城用户登录</h3>-->
+                <div class="form-group one">
+                    <label for="">您的姓名:</label>
+                    <input type="text" name="UserName" class="form-control" placeholder="您注册时填写的姓名">
+                </div>
+                <div class="form-group one">
+                    <label for="">Email:</label>
+                    <input type="email" name="Email" placeholder="输入您注册时填写的电子邮件(用于登录)" class="form-control">
+                </div>
+                <div class="form-group one">
+                    <label for="">您的手机号:</label>
+                    <input type="tel" name="PhoneNumer" class="form-control" placeholder="您注册时填写的手机号">
+                </div>
+                <div class="form-group two">
+                    <label for="">输入您的新密码:</label>
+                    <input type="password" name="PassWord" class="form-control" placeholder="输入您的新密码">
+                </div>
+                <div class="form-group two">
+                    <label for="">重复输入:</label>
+                    <input type="password" name="rePassWord" class="form-control" placeholder="重复输入您的密码">
+                </div>
+                <div class="form-group one">
+                    <label for="">验证码:<img id="verify_img" src="{:captcha_src()}" alt="验证码" onclick="this.src='{:captcha_src()}'" width="200px" height="40px;"></label>
+                    <input type="text" name="Vcode" id="" class="form-control" placeholder="请输入上方验证码">
+                </div>
+
+                
+
+                <div class="form-group">
+                    <input id="tj" type="button" value="提交申诉" class="btn btn-danger form-control">
+                </div>
+            </form>
+            
+        </div>      
+        <div class="col-md-3"></div>
+    </div>
+</body>
+
+<script>
+    //首先隐藏新密码提示框
+    //$('.two').hide();
+    $('#tj').click(function(){
+    // 获取用户输入的值
+    var UserName = $("input[name='UserName']").val();
+    var Email = $("input[name='Email']").val();
+    var PhoneNumer = $("input[name='PhoneNumer']").val();
+    var Vcode = $("input[name='Vcode']").val();
+    var PassWord = $("input[name='PassWord']").val();
+    var rePassWord = $("input[name='rePassWord']").val();
+    
+    $.ajax({
+        url:"CheckForPassWd",
+        type:'POST',
+        data:{UserName:UserName,Email:Email,PhoneNumer:PhoneNumer,Vcode:Vcode,NewPassWord:PassWord},
+        success:function(data){
+            //身份验证失败
+            if(data.Id == '0'){
+                $('.two').hide();
+                $('.one').show();
+                $('#tj').val("提交申诉");
+                alert(data.mag);
+            }
+            //身份验证成功
+            if(data.Id == '1'){
+                $('.two').show();
+                $('.one').hide();
+                $('#tj').val("修改密码");
+                alert(data.mag);
+            }
+            //申诉成功
+            if(data.Id == '2'){
+                alert(data.mag);
+                $(location).attr('href',"/Login");
+            }
+        }
+    });
+});
+(function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+</html>

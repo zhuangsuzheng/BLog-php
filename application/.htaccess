@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c> 
+RewriteEngine on
+RewriteBase /
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
+
+</IfModule>

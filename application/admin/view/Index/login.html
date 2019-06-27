@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bt/css/bootstrap-theme.min.css">
+    <script src="/static/bt/js/jquery.js"></script>
+    <script src="/static/bt/js/jquery_md5.js"></script>
+    <script src="/static/bt/js/bootstrap.min.js"></script>
+    <script src="/static/bt/js/holder.js"></script>
+    <script src="/static/bt/js/cookie.js"></script>
+    <script src="/static/self/js/public.js"></script>
+    <!---<script src="/static/self/setting.js"></script>--->
+    <title>用户登录</title>
+</head>
+<body>
+    <div class="container" style="color:#eee">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="margin-top:200px;">
+            <form action="{:url('User/login')}" method="POST">
+                <h1 class="page-header">管理员登录</h1>
+                <div class="form-group">
+                    <label for="">管理员账号</label>
+                    <input type="text" name="UserName" id="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">管理员密码</label>
+                    <input type="password" name="PassWord" id="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="登录" class="btn btn-success form-control">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</body>
+</html>

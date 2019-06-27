@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yy科技城</title>
+	<!-- Bootstrap Styles-->
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="/static/assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="/static/assets/css/custom-styles.css" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        {include file='../application/admin/view/model/nav.html'}
+        <!--/. NAV TOP  -->
+        {include file='../application/admin/view/model/left.html'}
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+                      
+
+
+            <!---主要内容开始--->
+
+
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>权限</th>
+                    <th>账号</th>
+                    <th>密码</th>
+                    <th>姓名</th>
+                    <th>电话号码</th>
+                    <th>提交时间</th>
+                    <th>状态</th>
+                    <th>operation</th>
+                </tr>
+                <!---开始循环--->
+                {volist name='list' id='user'}
+                <tr>
+                        <td>{$user.Id}</td>
+                        <td>{$user.Jurisdiction}</td>
+                        <td>{$user.Email}</td>
+                        <td>{$user.PassWord}</td>
+                        <td>{$user.UserName}</td>
+                        <td>{$user.PhoneNumer}</td>
+                        <td>{$user.RegTime|date='Y-m-d H:i:s',###}</td>
+                        <td>{$user.State}</td>
+                        
+                        <td>
+                            <a href="{:url('Index/Update',['Id'=>$user.Id])}" class="btn btn-success" data-toggle="modal" data-target="#myModa2">修改</a>
+                            <button idx="{$user.Id}" idn="{$user.UserName}" class="btn btn-warning del" data-toggle="modal" data-target="#myModal">冻结</button>
+                            <button idx="{$user.Id}" idn="{$user.UserName}" class="btn btn-warning del" data-toggle="modal" data-target="#myModa3">解冻</button>
+                        </td>
+                </tr>
+                {/volist}
+                <!---结束循环--->
+                
+            </table>
+            {$page}
+
+
+
+        
+            
+            <!-- 冻结模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">您确定要冻结这个用户吗?</h4>
+                        </div>
+                        <div class="modal-body">您确定要冻结 <span id="User"></span>用户吗?</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="TiJiao" class="btn btn-primary" id="DelUser" data-dismiss="modal">提交更改</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+            <!-- 解冻结模态框（Modal） -->
+            <div class="modal fade" id="myModa3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">您确定要恢复这个用户吗?</h4>
+                        </div>
+                        <div class="modal-body">您确定要恢复 <span id="User"></span>用户吗?<br />
+                            <p>您需要注意的是,恢复了这个用户的状态之后他将获得他之前的权限。</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="huifu" class="btn btn-primary" id="DelUser" data-dismiss="modal">提交更改</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+
+            <!-- 修改模态框（Modal） -->
+            <div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+                        </div>
+                        <div class="modal-body">在这里添加一些文本</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">提交更改</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+
+
+
+
+            <!---主要内容结束--->
+
+
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="/static/assets/js/jquery-1.10.2.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="/static/assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="/static/assets/js/jquery.metisMenu.js"></script>
+      <!-- Custom Js -->
+    <script src="/static/assets/js/custom-scripts.js"></script>
+ 
+    <script>
+        var Id;
+        $(".del").click(function(){
+
+            Id = $(this).attr("idx");
+            var name = $(this).attr("idn");
+            $("#User").html(name);
+
+            
+
+
+        });
+        $("button[type='TiJiao']").click(function(){
+            $.ajax({
+                url:"{:url('DelUser')}",
+                type:'POST',
+                dataType:'JSON',
+                data:{Id:Id},
+                success:function(data){
+                    if(data){
+                        alert("执行成功");
+                    }else{
+                        alert("执行失败");
+                    }
+                    
+                }
+            });
+        });
+        $("button[type='huifu']").click(function(){
+            $.ajax({
+                url:"{:url('UnDelUser')}",
+                type:'POST',
+                dataType:'JSON',
+                data:{Id:Id},
+                success:function(data){
+                    if(data){
+                        alert("执行成功");
+                    }else{
+                        alert("执行失败");
+                    }
+                    
+                }
+            });
+        });
+    </script>
+</body>
+</html>
